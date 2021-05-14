@@ -111,8 +111,8 @@ namespace SubSplit
                 if (Flags.Merge)
                     for (var index2 = index + 1; index2 < subtitlesAll.Length; index2++)
                     {
-                        var text = subtitlesAll[index2].Text.Trim();
-                        if (text.StartsWith(".") || text[0] == text.ToLower()[0])
+                        var text = subtitlesAll[index2].Text.Trim(' ', '.', '-');
+                        if (text[0] == text.ToLower()[0])
                         {
                             subtitleList.Add(subtitlesAll[index2]);
                         }
