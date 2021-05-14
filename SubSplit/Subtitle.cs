@@ -4,7 +4,7 @@ namespace SubSplit
 {
     public record Subtitle(int Id, TimeSpan Start, TimeSpan End, string Text, string OriginalText)
     {
-        public override string ToString() => $"{Id}\n{Start:hh\\:mm\\:ss\\,fff} --> {End:hh\\:mm\\:ss\\,fff}\n{OriginalText}";
+        public override string ToString() => $"{Id}\n{Start:hh\\:mm\\:ss\\,fff} --> {End:hh\\:mm\\:ss\\,fff}\n{Text}";
     }
 
     public record AdvancedSubtitle(int Id, TimeSpan Start, TimeSpan End, string Text, string OriginalText, string Channel, int Layer, string Style, SubtitleMargins Margins) : Subtitle(Id, Start, End, Text, OriginalText)
