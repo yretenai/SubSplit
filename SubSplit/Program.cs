@@ -124,8 +124,8 @@ namespace SubSplit
                     }
 
                 List<IStream> streamList = new();
-                var duration = (subtitleList.Last().End - subtitleList.First().Start).Add(durationOffset);
-                var start = subtitleList.First().Start.Subtract(startOffset) - fixedStart;
+                var duration = (subtitleList.Last().End - subtitleList.First().Start).Add(durationOffset).Add(startOffset);
+                var start = subtitleList.First().Start.Subtract(startOffset).Subtract(fixedStart);
                 streamList.Add(videoStream.Split(fixedStart, duration));
                 if (audioStream != null) streamList.Add(audioStream.Split(fixedStart, duration));
                 var name = $"{subtitleList.First().Id}_{GetValidFilename(subtitleList.First().Text)}";
@@ -136,7 +136,7 @@ namespace SubSplit
                 {
                     var subtitle = subtitleList[i];
                     newEnd += subtitle.End - oldEnd;
-                    if (i == subtitleList.Count - 1) newEnd += durationOffset;
+                    if (i == subtitleList.Count - 1) newEnd = duration;
 
                     if (i == 0) newEnd += startOffset;
 
