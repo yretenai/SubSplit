@@ -6,4 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="DragonLib" Version="1.1.5.1" />
+      <PackageReference Include="Xabe.FFmpeg" Version="4.4.1" />
+      <PackageReference Include="Xabe.FFmpeg.Downloader" Version="4.4.1" />
+    </ItemGroup>
+
 </Project>
